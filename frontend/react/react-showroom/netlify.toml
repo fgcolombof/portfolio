@@ -1,12 +1,22 @@
 [build]
-  publish = "dist" # O "build", según si usás Vite o CRA
+  command = "npm run build"
+  publish = "dist"
+  # Le indicamos a Netlify dónde están tus Serverless Functions
+  functions = "netlify/functions"
 
 [dev]
   command = "npm run dev:vite"
   port = 8888
   targetPort = 5173
 
+# Redirección para las Serverless Functions
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# Redirección para React Router (evita error 404 al refrescar)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200
