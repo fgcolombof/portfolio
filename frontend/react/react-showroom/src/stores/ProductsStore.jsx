@@ -7,7 +7,9 @@ export const useFavoriteStore = create((set) => ({
   // Carga inicial de productos desde la API
   getProducts: async () => {
     try {
-      const response = await fetch("http://localhost:3001/products");
+      // API base URL - always use /api which works with Netlify Dev and production
+      const API_BASE_URL = "/api";
+      const response = await fetch(`${API_BASE_URL}/products`);
       if (!response.ok) {
         throw new Error(
           `There was a problem fetching products: ${response.status} - ${response.statusText}`,

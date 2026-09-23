@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "dev:vite": "vite",
+    "dev:api": "node dev-server.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port 3001",
-    "dev": "concurrently \"npm run dev:vite\" \"npm run server\"",
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:api\"",
     "test": "vitest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.3.0",
@@ -21,7 +23,7 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
-"@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.6",
@@ -33,8 +35,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "jsdom": "^29.1.1",
-    "json-server": "^1.0.0-beta.15",
     "vite": "^7.2.4",
     "vitest": "^4.1.11"
-    }
+  }
 }

@@ -1,3 +1,13 @@
+# --- Dependencias (Node/Angular/React) ---
+**/node_modules/
+
+# --- Caché y Builds (Angular/React/Next) ---
+**/.angular/
+**/dist/
+**/build/
+**/out/
+**/.next/
+
 # --- Editores e IDEs ---
 .vscode/
 .idea/

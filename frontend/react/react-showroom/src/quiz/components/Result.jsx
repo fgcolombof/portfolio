@@ -1,25 +1,14 @@
 import React from "react";
 
 export const Result = ({ answers, quiz, onRestart }) => {
-  //   console.log(`Final answers: ${answers}`);
-  // 1. Calculamos la cantidad de aciertos comparando los índices
-  const score = answers.reduce((acc, selectedOptionIndex, index) => {
-    let correctAnswer = quiz.content[index].answer;
-    let selectedAnswer = answers[index];
-
-    // console.log(
-    //   `Type of selectedAnswer: ${typeof selectedAnswer}, Type of correctAnswer: ${typeof correctAnswer}`,
-    // );
-
-    // console.log(
-    //   `Question ${index + 1}: Selected Answer = ${selectedAnswer}, Correct Answer = ${correctAnswer}, Result: ${selectedAnswer == correctAnswer ? "Correct" : "Wrong"}`,
-    // );
-    const corrects = selectedAnswer === correctAnswer ? acc + 1 : acc;
-    return corrects;
+  // 1. Calculamos la cantidad de aciertos comparando los textos de las respuestas
+  const score = answers.reduce((acc, selectedAnswer, index) => {
+    const correctAnswer = quiz.content[index].answer;
+    const isCorrect = selectedAnswer === correctAnswer;
+    return isCorrect ? acc + 1 : acc;
   }, 0);
 
   const totalQuestions = quiz.content.length;
-  //   console.log(`Score: ${score} out of totalQuestions${totalQuestions}`);
   const percentage = Math.round((score / totalQuestions) * 100);
 
   return (
@@ -36,21 +25,12 @@ export const Result = ({ answers, quiz, onRestart }) => {
       {/* 📝 Desglose Pregunta por Pregunta */}
       <div className="quiz-review-list">
         {quiz.content.map((item, index) => {
-          const userChoiceIndex = answers[index];
-          const isCorrect = userChoiceIndex == item.answer;
-          {
-            /*console.log(
-              `Question ${index + 1} - ${quiz.content[index].question}: User Choice Index = ${userChoiceIndex}, Correct Answer = ${item.answer}. Result: ${isCorrect ? "Correct" : "Wrong"}`,
-            );*/
-          }
+          const userChoiceText = answers[index];
+          const correctAnswerText = item.answer;
+          const isCorrect = userChoiceText === correctAnswerText;
 
-          // Si contestó la opción o no respondió
-          const userChoiceText =
-            userChoiceIndex !== null && userChoiceIndex !== undefined
-              ? item.options[userChoiceIndex]
-              : "Sin responder";
-
-          const correctAnswerText = item.options[index];
+          // Si no respondió
+          const didNotAnswer = userChoiceText === null || userChoiceText === undefined;
 
           return (
             <div
@@ -67,10 +47,10 @@ export const Result = ({ answers, quiz, onRestart }) => {
                   className={`quiz-user-choice ${isCorrect ? "correct" : "wrong"}`}
                 >
                   {isCorrect ? "✓ " : "✗ "}Tu respuesta:{" "}
-                  <strong>{userChoiceText}</strong>
+                  <strong>{didNotAnswer ? "Sin responder" : userChoiceText}</strong>
                 </div>
 
-                {/* Si le erró, mostramos cuál era la correcta */}
+                {/* Si le erró o no respondió, mostramos cuál era la correcta */}
                 {!isCorrect && (
                   <div className="quiz-correct-target">
                     💡 Respuesta correcta: <strong>{correctAnswerText}</strong>

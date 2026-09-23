@@ -8,11 +8,14 @@ const QuizApp = () => {
   const [answers, setAnswers] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
 
+  // API base URL - always use /api which works with Netlify Dev and production
+  const API_BASE_URL = "/api";
+
   // Fetch a la Mock API
   useEffect(() => {
     const fetchQuiz = async () => {
       try {
-        const response = await fetch("http://localhost:3001/quiz");
+        const response = await fetch(`${API_BASE_URL}/quiz`);
         if (!response.ok) {
           throw new Error(`HTTP Error: ${response.status}`);
         }
@@ -28,7 +31,7 @@ const QuizApp = () => {
     };
 
     fetchQuiz();
-  }, []);
+  }, [API_BASE_URL]);
 
   // Si está cargando o no hay quiz, mostramos el mensaje de carga
   if (loading || !quiz) {

@@ -13,11 +13,14 @@ export const FavoriteListRedux = () => {
   // Leemos los favoritos directamente desde tu FavoritesSlice
   const favorites = useSelector((state) => state.favorites?.items || []);
 
+  // API base URL - always use /api which works with Netlify Dev and production
+  const API_BASE_URL = "/api";
+
   // Fetch directo a tu Mock API local
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3001/products");
+        const response = await fetch(`${API_BASE_URL}/products`);
         if (!response.ok) {
           throw new Error(
             `Problem fetching products: ${response.status} - ${response.statusText}`,
@@ -33,7 +36,7 @@ export const FavoriteListRedux = () => {
     };
 
     getProducts();
-  }, []);
+  }, [API_BASE_URL]);
 
   return (
     <div className="showroom-container">
