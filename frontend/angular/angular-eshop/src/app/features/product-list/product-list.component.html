@@ -1,0 +1,67 @@
+<div class="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
+  <!-- Page Header -->
+  <div class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">E-Shop Zoneless</h1>
+          <p class="mt-1 text-sm text-gray-600">Premium products with the best quality</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="px-3 py-1 text-sm font-medium bg-green-50 text-green-700 rounded-full">
+            {{ products().length }} products
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Loading State -->
+    @if (isLoading()) {
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (i of [1, 2, 3, 4, 5, 6, 7, 8]; track i) {
+          <div class="bg-white rounded-xl p-4 animate-pulse">
+            <div class="aspect-square bg-gray-200 rounded-lg mb-4"></div>
+            <div class="space-y-3">
+              <div class="h-4 bg-gray-200 rounded w-3/4"></div>
+              <div class="h-3 bg-gray-200 rounded w-full"></div>
+              <div class="h-3 bg-gray-200 rounded w-2/3"></div>
+              <div class="h-6 bg-gray-200 rounded w-1/2"></div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Products Grid -->
+    @if (!isLoading() && products().length > 0) {
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (product of products(); track product.id) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!isLoading() && products().length === 0) {
+      <div class="text-center py-16">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4"
+        >
+          <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium text-gray-900 mb-2">There aren't available products</h3>
+        <p class="text-gray-600">Please, try later.</p>
+      </div>
+    }
+  </main>
+</div>

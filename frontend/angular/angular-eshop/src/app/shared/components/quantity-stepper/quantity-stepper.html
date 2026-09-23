@@ -1,0 +1,25 @@
+<div class="inline-flex items-center border border-gray-300 rounded-lg shadow-sm overflow-hidden select-none bg-white">
+  <button
+    type="button"
+    (click)="decrement()"
+    [disabled]="quantity() <= min()"
+    class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+    aria-label="Decrementar cantidad"
+  >
+    -
+  </button>
+
+  <span class="px-3 py-1.5 font-semibold text-gray-800 min-w-[2.5rem] text-center border-x border-gray-200">
+    {{ quantity() }}
+  </span>
+
+  <button
+    type="button"
+    (click)="increment()"
+    [disabled]="quantity() >= max()"
+    class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+    aria-label="Incrementar cantidad"
+  >
+    +
+  </button>
+</div>

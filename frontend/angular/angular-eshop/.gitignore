@@ -1,0 +1,15 @@
+# Dependencias (Lo que nos pesaba hoy)
+node_modules/
+
+# Cache de Angular y compilación
+.angular/
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+# Pruebas (Coverage)
+/coverage
+
+# Varios
+.editorconfig
