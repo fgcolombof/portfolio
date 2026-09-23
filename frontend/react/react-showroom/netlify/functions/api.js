@@ -65,7 +65,7 @@ const db = {
   }
 };
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   const pathParts = event.path.split("/").filter(Boolean);
   const resource = pathParts[pathParts.length - 1];
 
