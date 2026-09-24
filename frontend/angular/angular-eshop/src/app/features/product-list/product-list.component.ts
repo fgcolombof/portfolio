@@ -1,4 +1,4 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, OnInit } from '@angular/core';
 import { ProductService } from '../../core/services/product.service';
 import { ProductCardComponent } from '../../shared/components/product-card/product-card.component';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -11,7 +11,7 @@ import { from } from 'rxjs';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   private productService = inject(ProductService);
   
   products =  toSignal(from(this.productService.getProducts()), {initialValue: []});
@@ -21,4 +21,8 @@ export class ProductListComponent {
   // Retorna true si es null O si tiene largo 0
   return !list || list.length === 0;
 });
+
+async ngOnInit(): Promise<void> {
+  await this.productService.refreshProducts();
+}
 }

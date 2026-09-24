@@ -32,4 +32,10 @@ export class ProductService {
     this.productCache.set(product.id, product);
     return product;
   }
+
+  // 3. Resetear caché y recargar productos completos
+  async refreshProducts(): Promise<Product[]> {
+    this.productCache.clear();
+    return this.getProducts();
+  }
 }
