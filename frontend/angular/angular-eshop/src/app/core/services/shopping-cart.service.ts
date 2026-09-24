@@ -21,4 +21,8 @@ export class ShoppingCartService {
   removeProduct(productId: number): ShoppingCartItem | undefined {
     return this.shoppingCart.removeItem(productId);
   }
+
+  clearCart(): void {
+    this.shoppingCart = new ShoppingCart();
+  }
 }

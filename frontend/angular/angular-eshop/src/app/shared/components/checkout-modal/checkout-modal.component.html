@@ -1,0 +1,88 @@
+@if (isOpen()) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div 
+      class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity"
+      (click)="closeCheckout()"
+    ></div>
+
+    <!-- Modal Content -->
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform transition-all">
+      <!-- Success Header -->
+      <div class="bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-4 rounded-t-2xl">
+        <div class="flex items-center justify-center space-x-3">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-white">Order Confirmed!</h2>
+        </div>
+      </div>
+
+      <!-- Ticket/Factura -->
+      <div class="p-6">
+        <div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-5 font-mono text-sm">
+          <!-- Order Info -->
+          <div class="flex justify-between items-center mb-4 pb-3 border-b border-gray-300">
+            <div>
+              <p class="text-gray-500 text-xs">Order Number</p>
+              <p class="text-gray-900 font-bold text-lg">{{ orderNumber() }}</p>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-500 text-xs">Date</p>
+              <p class="text-gray-900">{{ orderDate() }}</p>
+            </div>
+          </div>
+
+          <!-- Products List -->
+          <div class="space-y-2 mb-4 pb-3 border-b border-gray-300">
+            @for (item of cartItems(); track item.product.id) {
+              <div class="flex justify-between items-start">
+                <div class="flex-1">
+                  <p class="text-gray-900 font-medium truncate">{{ item.product.title }}</p>
+                  <p class="text-gray-500 text-xs">Qty: {{ item.amount }} × {{ item.product.price | currency: 'USD' }}</p>
+                </div>
+                <p class="text-gray-900 font-bold">{{ (item.product.price * item.amount) | currency: 'USD' }}</p>
+              </div>
+            }
+          </div>
+
+          <!-- Total -->
+          <div class="flex justify-between items-center">
+            <p class="text-gray-900 font-bold text-lg">TOTAL PAID</p>
+            <p class="text-green-600 font-bold text-xl">{{ totalAmount() | currency: 'USD' }}</p>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <button
+          (click)="continueShopping()"
+          class="w-full mt-6 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors duration-200 shadow-lg hover:shadow-xl"
+        >
+          Continue Shopping
+        </button>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        (click)="closeCheckout()"
+        class="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+}

@@ -46,9 +46,27 @@
             </p>
           </div>
 
-          <!-- Total Price for item -->
-          <div class="text-right font-bold text-sm text-gray-900">
-            {{ item.product.price * item.amount | currency: 'USD' }}
+          <!-- Actions -->
+          <div class="flex items-center gap-3">
+            <!-- Total Price for item -->
+            <div class="text-right font-bold text-sm text-gray-900">
+              {{ item.product.price * item.amount | currency: 'USD' }}
+            </div>
+            <!-- Remove Button -->
+            <button
+              (click)="removeItem(item.product.id)"
+              class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
+              title="Remove item"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                ></path>
+              </svg>
+            </button>
           </div>
         </div>
       }
@@ -62,9 +80,17 @@
       </div>
 
       <button
+        (click)="handleCheckout()"
         class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-xs transition-colors duration-200"
       >
         Checkout
+      </button>
+
+      <button
+        (click)="goToHome()"
+        class="w-full py-2 px-4 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+      >
+        Return to Home
       </button>
     </div>
   } @else {
@@ -87,3 +113,5 @@
     </div>
   }
 </div>
+
+<app-checkout-modal />

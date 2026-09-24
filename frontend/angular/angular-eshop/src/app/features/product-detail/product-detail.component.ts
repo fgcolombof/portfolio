@@ -35,7 +35,7 @@ export class ProductDetailComponent {
   handleAddToCart(): void {
     const currentProduct = this.product();
     if (currentProduct) {
-      // Inyecta directamente la cantidad seleccionada al carrito
+      // Inject the selected quantity directly to the cart
       this.cartService.addProduct(currentProduct, this.selectedQuantity());
     }
   }
