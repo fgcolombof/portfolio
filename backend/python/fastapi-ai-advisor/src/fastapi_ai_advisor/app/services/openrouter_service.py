@@ -1,29 +1,17 @@
-import os
 import asyncio
-from pathlib import Path
-from dotenv import load_dotenv
 from openai import OpenAI
 from fastapi_ai_advisor.app.core.logging import get_logger
 from fastapi_ai_advisor.app.core.exceptions import OpenRouterAPIError
-
-# Load .env from project root
-env_path = Path(__file__).parent.parent.parent.parent.parent / ".env"
-load_dotenv(env_path, override=True)
+from fastapi_ai_advisor.app.core.config import settings
 
 logger = get_logger(__name__)
 
 
 class OpenRouterService:
     def __init__(self):
-        # Force read from .env file directly
-        with open(env_path, 'r') as f:
-            for line in f:
-                if line.startswith('OPENROUTER_API_KEY='):
-                    self.api_key = line.strip().split('=', 1)[1]
-                    break
         self.client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
-            api_key=self.api_key,
+            api_key=settings.OPENROUTER_API_KEY,
             timeout=60.0
         )
         logger.info("OpenRouterService initialized successfully")
