@@ -1,0 +1,31 @@
+[project]
+name = "fastapi-ai-advisor"
+version = "0.1.0"
+description = "FastAPI AI Advisor Service using OpenRouter"
+readme = "README.md"
+authors = [
+    { name = "Fernando Colombo", email = "fernandocolombo@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]",
+    "httpx",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "openai",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+]
+
+[project.scripts]
+fastapi-ai-advisor = "fastapi_ai_advisor:main"
+
+[build-system]
+requires = ["uv_build>=0.12.0,<0.13.0"]
+build-backend = "uv_build"

@@ -1,14 +1,39 @@
-# --- Dependencias (Node/Angular/React) ---
+# ==========================================
+# 1. FRONTEND (Node / Angular / React / Next)
+# ==========================================
 **/node_modules/
-
-# --- Caché y Builds (Angular/React/Next) ---
 **/.angular/
 **/dist/
 **/build/
 **/out/
 **/.next/
 
-# --- Editores e IDEs ---
+# ==========================================
+# 2. BACKEND PYTHON (FastAPI / uv / Pytest)
+# ==========================================
+**/.venv/
+**/venv/
+**/ENV/
+**/env/
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.pytest_cache/
+**/.coverage
+**/htmlcov/
+**/.ruff_cache/
+**/.mypy_cache/
+
+# ==========================================
+# 3. SEGURIDAD Y ARCHIVOS DE ENTORNO
+# ==========================================
+**/.env
+**/.env.*
+!.env.example
+
+# ==========================================
+# 4. EDITORES, IDES Y SISTEMA
+# ==========================================
 .vscode/
 .idea/
 *.suo
@@ -16,19 +41,14 @@
 *.njsproj
 *.sln
 *.sw?
-
-# --- Sistema ---
 .DS_Store
 Thumbs.db
 
-# --- Logs y Temporales ---
+# ==========================================
+# 5. LOGS Y TEMPORALES
+# ==========================================
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# --- Archivos de entorno (Seguridad) ---
-.env
-.env.local
-.env.*.local
