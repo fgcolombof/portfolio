@@ -14,8 +14,8 @@ RUN pip install --no-cache-dir uv
 # Copy dependency definition
 COPY pyproject.toml ./
 
-# Install dependencies into system packages
-RUN uv pip install --system .
+# Install ONLY dependencies from pyproject.toml
+RUN uv pip install --system -r pyproject.toml
 
 # Production stage
 FROM python:3.13-slim
