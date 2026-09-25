@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir uv
 
 # Copy dependency definition
-COPY pyproject.toml README.md ./
+COPY pyproject.toml ./
 
 # Install dependencies into system packages
 RUN uv pip install --system .
