@@ -22,6 +22,10 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
+# Configurar PYTHONPATH para que Python reconozca la carpeta src/
+ENV PYTHONPATH=/app/src \
+    PYTHONUNBUFFERED=1
+
 # Copy installed dependencies from builder
 COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
@@ -36,5 +40,5 @@ USER appuser
 # Expose default port
 EXPOSE 8000
 
-# Run application using Render dynamic PORT (defaults to 8000 if not set)
-CMD ["sh", "-c", "uvicorn src.fastapi_ai_advisor.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Run application using Render dynamic PORT
+CMD ["sh", "-c", "uvicorn fastapi_ai_advisor.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
