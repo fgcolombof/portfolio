@@ -1,18 +1,18 @@
-/* 1. Reset Global Limpio */
+/* 1. Clean Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 2. Variables de Tema (Dark Mode + Dorado) */
+/* 2. Theme Variables (Dark Mode + Gold) */
 :root {
-  --bg-main: #0f172a; /* Azul/Gris oscuro principal */
-  --bg-card: #1e293b; /* Tarjetas un poco más claras */
-  --accent-yellow: #ffcc00; /* Amarillo/Dorado para acentos */
-  --text-main: #f8fafc; /* Blanco suave para textos */
-  --text-muted: #94a3b8; /* Gris claro para descripciones */
-  --border-color: #334155; /* Borde fino sobrio */
+  --bg-main: #0f172a; /* Main dark blue/gray */
+  --bg-card: #1e293b; /* Slightly lighter cards */
+  --accent-yellow: #ffcc00; /* Yellow/Gold for accents */
+  --text-main: #f8fafc; /* Soft white for text */
+  --text-muted: #94a3b8; /* Light gray for descriptions */
+  --border-color: #334155; /* Subtle thin border */
 }
 
 /* 3. Estructura Principal */
@@ -298,7 +298,7 @@ body {
 }
 
 /* ==========================================
-   📝 MÓDULO: COUNTER (Dark & Gold)
+   📝 MODULE: COUNTER (Dark & Gold)
    ========================================== */
 .counter-page-container {
   max-width: 600px;
@@ -423,7 +423,7 @@ body {
 }
 
 /* ==========================================
-   📝 MÓDULO: UNCONTROLLED FORM (Dark & Gold)
+   📝 MODULE: UNCONTROLLED FORM (Dark & Gold)
    ========================================== */
 
 .form-container {
@@ -606,7 +606,7 @@ body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* Encabezados y títulos */
+/* Headers and Titles */
 .quiz-title {
   text-align: center;
   color: var(--accent-yellow, #ffd700);
@@ -635,7 +635,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Botón de opción individual (Tarjetas seleccionables) */
+/* Individual Option Button (Selectable Cards) */
 .quiz-option-btn {
   display: block;
   width: 100%;
@@ -667,7 +667,7 @@ body {
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
 }
 
-/* Botones de navegación (Anterior / Siguiente) */
+/* Navigation Buttons (Previous / Next) */
 .quiz-nav-buttons {
   display: flex;
   justify-content: space-between;
@@ -699,7 +699,7 @@ body {
   pointer-events: none;
 }
 
-/* Botón de reinicio */
+/* Reset Button */
 .quiz-restart-btn {
   display: block;
   margin: 1.5rem auto 0;
@@ -778,7 +778,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Tarjeta individual de revisión */
+/* Individual Review Card */
 .quiz-review-item {
   background-color: var(--bg-main, #121212);
   border-radius: 10px;
@@ -816,7 +816,7 @@ body {
   font-weight: 500;
 }
 
-/* Colores para la elección del usuario */
+/* Colors for User's Choice */
 .quiz-user-choice.correct {
   background-color: rgba(76, 175, 80, 0.15);
   color: #81c784;
@@ -976,7 +976,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Estadísticas / Stats Card */
+/* Statistics / Stats Card */
 .stats-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1057,7 +1057,7 @@ body {
   font-style: italic;
 }
 
-/* Navegación de Regreso */
+/* Back Navigation */
 .back-navigation {
   margin-top: 2.5rem;
 }

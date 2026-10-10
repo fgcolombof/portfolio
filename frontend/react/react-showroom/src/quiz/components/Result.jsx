@@ -29,7 +29,7 @@ export const Result = ({ answers, quiz, onRestart }) => {
           const correctAnswerText = item.answer;
           const isCorrect = userChoiceText === correctAnswerText;
 
-          // Si no respondió
+          // If not answered
           const didNotAnswer = userChoiceText === null || userChoiceText === undefined;
 
           return (
@@ -42,7 +42,7 @@ export const Result = ({ answers, quiz, onRestart }) => {
               </div>
 
               <div className="quiz-answer-detail">
-                {/* Lo que eligió el usuario */}
+                {/* What the user chose */}
                 <div
                   className={`quiz-user-choice ${isCorrect ? "correct" : "wrong"}`}
                 >
@@ -50,7 +50,7 @@ export const Result = ({ answers, quiz, onRestart }) => {
                   <strong>{didNotAnswer ? "Sin responder" : userChoiceText}</strong>
                 </div>
 
-                {/* Si le erró o no respondió, mostramos cuál era la correcta */}
+                {/* If wrong or not answered, show what the correct answer was */}
                 {!isCorrect && (
                   <div className="quiz-correct-target">
                     💡 Respuesta correcta: <strong>{correctAnswerText}</strong>
@@ -62,10 +62,10 @@ export const Result = ({ answers, quiz, onRestart }) => {
         })}
       </div>
 
-      {/* 🔄 Botón de Reinicio */}
+      {/* 🔄 Reset Button */}
       <div className="quiz-result-actions">
         <button type="button" className="quiz-restart-btn" onClick={onRestart}>
-          Volver a Intentar
+          Try Again
         </button>
       </div>
     </div>

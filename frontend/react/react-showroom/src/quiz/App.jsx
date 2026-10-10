@@ -33,7 +33,7 @@ const QuizApp = () => {
     fetchQuiz();
   }, [API_BASE_URL]);
 
-  // Si está cargando o no hay quiz, mostramos el mensaje de carga
+  // If loading or no quiz, show loading message
   if (loading || !quiz) {
     return (
       <div className="quiz-container">

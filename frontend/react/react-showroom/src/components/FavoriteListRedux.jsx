@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { toggleFavorite } from "../slices/FavoriteSlice"; // Ajustá la ruta a tu slice
+import { toggleFavorite } from "../slices/FavoriteSlice"; // Adjust the path to your slice
 
 export const FavoriteListRedux = () => {
   const dispatch = useDispatch();
 
-  // Estado local para los productos del Mock API (idéntico a cómo los maneja el componente)
+  // Local state for Mock API products (identical to how the Zustand component handles them)
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -49,9 +49,9 @@ export const FavoriteListRedux = () => {
         </p>
       </header>
 
-      {/* GRID DE 2 COLUMNAS (Catálogo vs Favoritos) */}
+      {/* 2-COLUMN GRID (Catalog vs Favorites) */}
       <div className="dashboard-grid">
-        {/* COLUMNA 1: CATÁLOGO */}
+        {/* COLUMN 1: CATALOG */}
         <section className="dashboard-section">
           <h2 className="dashboard-section-title">All Products</h2>
           <div className="dashboard-list">
@@ -81,7 +81,7 @@ export const FavoriteListRedux = () => {
           </div>
         </section>
 
-        {/* COLUMNA 2: MIS FAVORITOS */}
+        {/* COLUMN 2: MY FAVORITES */}
         <section className="dashboard-section">
           <h2 className="dashboard-section-title">
             My Favorites ({favorites.length})

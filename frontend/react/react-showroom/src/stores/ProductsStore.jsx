@@ -22,18 +22,18 @@ export const useFavoriteStore = create((set) => ({
     }
   },
 
-  // Agrega o quita de favoritos de forma limpia
+  // Add or remove from favorites cleanly
   toggleFavorite: (product) =>
     set((state) => {
       const exists = state.favorites.some((fav) => fav.id === product.id);
 
       if (exists) {
-        // Si ya está, lo quitamos
+        // If it exists, remove it
         return {
           favorites: state.favorites.filter((fav) => fav.id !== product.id),
         };
       } else {
-        // Si no está, lo agregamos
+        // If it doesn't exist, add it
         return {
           favorites: [...state.favorites, product],
         };

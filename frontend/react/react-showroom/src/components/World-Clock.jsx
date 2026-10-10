@@ -33,10 +33,10 @@ const WorldClock = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    // Suscripción al intervalo de 1 segundo
+    // Subscribe to 1-second interval
     const timer = setInterval(() => setTime(new Date()), 1000);
 
-    // Cleanup impecable para evitar leaks de memoria
+    // Cleanup to prevent memory leaks
     return () => clearInterval(timer);
   }, []);
 

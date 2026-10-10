@@ -13,10 +13,10 @@ export const FavoritesSlice = createSlice({
       const exists = state.items.some((item) => item.id === product.id);
 
       if (exists) {
-        // Si ya está, lo eliminamos con filter
+        // If it exists, remove it with filter
         state.items = state.items.filter((item) => item.id !== product.id);
       } else {
-        // En RTK podemos usar push() directo gracias a Immer.js por detrás
+        // In RTK we can use push() directly thanks to Immer.js behind the scenes
         state.items.push(product);
       }
     },

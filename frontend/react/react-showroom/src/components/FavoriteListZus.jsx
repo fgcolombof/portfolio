@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useFavoriteStore } from "../stores/ProductsStore"; // Ajustá la ruta a tu store
+import { useFavoriteStore } from "../stores/ProductsStore"; // Adjust the path to your store
 
 export const FavoriteListZus = () => {
   const products = useFavoriteStore((state) => state.products);
@@ -23,9 +23,9 @@ export const FavoriteListZus = () => {
         </p>
       </header>
 
-      {/* GRID DE 2 COLUMNAS (Catálogo vs Favoritos) */}
+      {/* 2-COLUMN GRID (Catalog vs Favorites) */}
       <div className="dashboard-grid">
-        {/* COLUMNA 1: CATÁLOGO */}
+        {/* COLUMN 1: CATALOG */}
         <section className="dashboard-section">
           <h2 className="dashboard-section-title">All Products</h2>
           <div className="dashboard-list">
@@ -53,7 +53,7 @@ export const FavoriteListZus = () => {
           </div>
         </section>
 
-        {/* COLUMNA 2: MIS FAVORITOS */}
+        {/* COLUMN 2: MY FAVORITES */}
         <section className="dashboard-section">
           <h2 className="dashboard-section-title">
             My Favorites ({favorites.length})

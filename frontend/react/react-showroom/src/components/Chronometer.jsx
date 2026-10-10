@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-// Formatea los milisegundos en HH:MM:SS:CC (Minutos:Segundos:Centésimas)
+// Format milliseconds into HH:MM:SS:CC (Minutes:Seconds:Hundredths)
 const formatTime = (time) => {
   const hours = Math.floor((time / 3600000) % 60);
   const minutos = Math.floor((time / 60000) % 60);
@@ -27,7 +27,7 @@ const Chronometer = () => {
       clearInterval(intervalo);
     }
 
-    // Función de limpieza (cleanup) crucial para evitar fugas de memoria
+    // Cleanup function crucial for preventing memory leaks
     return () => clearInterval(intervalo);
   }, [activo]);
 

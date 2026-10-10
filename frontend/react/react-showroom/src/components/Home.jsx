@@ -9,20 +9,20 @@ const Home = () => {
         <span className="header-badge">React 19 & Vite Showroom</span>
         <h1 className="main-title">Fernando Colombo's React Showroom</h1>
         <p className="main-subtitle">
-          Colección de patrones de arquitectura en React, custom hooks, gestión
-          de estado global y miniaplicaciones interactivas.
+          Collection of React architecture patterns, custom hooks, global state
+          management, and interactive mini-applications.
         </p>
       </header>
 
-      {/* ⚡ SECCIÓN 1 */}
+      {/* ⚡ SECTION 1 */}
       <section className="showroom-section">
         <div className="section-header">
           <span className="section-icon">⚡</span>
           <div>
             <h2 className="section-title">Core Concepts & React Hooks</h2>
             <p className="section-desc">
-              Fundamentos, manipulación de DOM con refs, limpieza de intervalos
-              y APIs externas.
+              Fundamentals, DOM manipulation with refs, interval cleanup
+              and external APIs.
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">Counter Zustand</h3>
               <p className="card-text">
-                Contador de estado simple implementado con Zustand.
+                Simple state counter implemented with Zustand.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
@@ -50,7 +50,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">Uncontrolled Form</h3>
               <p className="card-text">
-                Manejo de formulario no controlado evitando re-renders mediante{" "}
+                Uncontrolled form handling avoiding re-renders using{" "}
                 <code>useRef</code>.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
@@ -65,7 +65,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">Wikipedia Search</h3>
               <p className="card-text">
-                Buscador en tiempo real consumiendo la API de Wikipedia.
+                Real-time search consuming the Wikipedia API.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
@@ -79,8 +79,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">Chronometer</h3>
               <p className="card-text">
-                Cronómetro con formato HH:MM:SS y control de limpieza de
-                efectos.
+                Stopwatch with HH:MM:SS format and effect cleanup control.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
@@ -94,8 +93,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">World Clock</h3>
               <p className="card-text">
-                Reloj mundial con actualización en tiempo real y formateo de
-                zonas horarias.
+                World clock with real-time updates and timezone formatting.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
@@ -103,14 +101,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 🛡️ SECCIÓN 2 */}
+      {/* 🛡️ SECTION 2 */}
       <section className="showroom-section">
         <div className="section-header">
           <span className="section-icon">🛡️</span>
           <div>
             <h2 className="section-title">Global State Management</h2>
             <p className="section-desc">
-              Comparativa frente a frente entre Zustand y Redux Toolkit (RTK).
+              Head-to-head comparison between Zustand and Redux Toolkit (RTK).
             </p>
           </div>
         </div>
@@ -124,7 +122,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">Favorites List (Zustand)</h3>
               <p className="card-text">
-                Lista de favoritos global gestionada mediante Zustand Store.
+                Global favorites list managed via Zustand Store.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
@@ -138,7 +136,7 @@ const Home = () => {
               </div>
               <h3 className="card-title">Favorites List (Redux)</h3>
               <p className="card-text">
-                Arquitectura de estado global utilizando Slices, Selectors y
+                Global state architecture using Slices, Selectors, and
                 Redux Store.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
@@ -147,7 +145,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 🛡️ SECCIÓN 3 */}
+      {/* 🛡️ SECTION 3 */}
       <section className="showroom-section">
         <div className="section-header">
           <span className="section-icon">🖥️</span>

@@ -16,7 +16,7 @@ const ProfileForm = () => {
 
   // Estados
   const [errors, setErrors] = useState({});
-  const [submittedData, setSubmittedData] = useState(null); // 👈 Guardamos el resultado acá
+  const [submittedData, setSubmittedData] = useState(null); // We store the result here
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,7 +38,7 @@ const ProfileForm = () => {
       return;
     }
 
-    // 🚀 ÉXITO: Limpiamos errores, mostramos los datos y reseteamos inputs
+    // SUCCESS: Clear errors, show data, and reset inputs
     setErrors({});
     setSubmittedData(result.data);
 
@@ -50,8 +50,8 @@ const ProfileForm = () => {
     <div className="form-container">
       <h1 className="form-title">Uncontrolled Form</h1>
       <p className="form-subtitle">
-        <code>useRef</code> + Validación <code>Zod</code> + Vista previa en
-        pantalla.
+        <code>useRef</code> + Validation <code>Zod</code> + Live preview
+        on screen.
       </p>
 
       <form onSubmit={handleSubmit} noValidate>
@@ -96,7 +96,7 @@ const ProfileForm = () => {
         </button>
       </form>
 
-      {/* 📊 PANEL DE RESUMEN / VISTA PREVIA (Aparece solo tras el submit exitoso) */}
+      {/* 📊 SUMMARY PANEL / PREVIEW (Only appears after successful submit) */}
       {submittedData && (
         <div className="submitted-card" data-testid="submitted-summary">
           <h2 className="submitted-card-title">✔ Submitted Data</h2>
