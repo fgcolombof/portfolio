@@ -3,14 +3,16 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 import { InvoicesService } from './invoices.service';
 import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import { InvoiceEntity } from './entities/invoice.entity';
+import { Public } from '../auth/decorators/public.decorator';
 
 @ApiTags('invoices')
 @Controller('invoices')
 export class InvoicesController {
   constructor(private readonly invoicesService: InvoicesService) {}
 
+  @Public()
   @Post()
-  @ApiOperation({ summary: 'Create a new invoice' })
+  @ApiOperation({ summary: 'Create a new invoice (guest checkout)' })
   @ApiResponse({
     status: HttpStatus.CREATED,
     description: 'Invoice created successfully',
@@ -20,7 +22,9 @@ export class InvoicesController {
     status: HttpStatus.BAD_REQUEST,
     description: 'Invalid input data',
   })
-  async create(@Body() createInvoiceDto: CreateInvoiceDto): Promise<InvoiceEntity> {
+  async create(
+    @Body() createInvoiceDto: CreateInvoiceDto,
+  ): Promise<InvoiceEntity> {
     return this.invoicesService.create(createInvoiceDto);
   }
 

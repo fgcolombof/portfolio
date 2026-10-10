@@ -1,4 +1,8 @@
-import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  BadRequestException,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProcessPaymentDto, PaymentMethod } from './dto/process-payment.dto';
@@ -20,7 +24,9 @@ export class PaymentsService {
     private readonly notificationsGateway: NotificationsGateway,
   ) {}
 
-  async processPayment(processPaymentDto: ProcessPaymentDto): Promise<InvoiceEntity> {
+  async processPayment(
+    processPaymentDto: ProcessPaymentDto,
+  ): Promise<InvoiceEntity> {
     const invoice = await this.invoiceRepository.findOne({
       where: { id: processPaymentDto.invoiceId },
       relations: {

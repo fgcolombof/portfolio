@@ -1,5 +1,11 @@
 import { Controller, Get, Param, HttpStatus } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+} from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { UserEntity } from './entities/user.entity';
 
@@ -9,6 +15,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get(':id')
+  @ApiBearerAuth()
   @ApiOperation({ summary: 'Get user by ID' })
   @ApiParam({
     name: 'id',

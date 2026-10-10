@@ -7,7 +7,10 @@ import { InvoiceItemEntity } from './entities/invoice-item.entity';
 import { UsersModule } from '../users/users.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([InvoiceEntity, InvoiceItemEntity]), UsersModule],
+  imports: [
+    TypeOrmModule.forFeature([InvoiceEntity, InvoiceItemEntity]),
+    UsersModule,
+  ],
   controllers: [InvoicesController],
   providers: [InvoicesService],
   exports: [InvoicesService, TypeOrmModule],

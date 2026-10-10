@@ -1,5 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsOptional, IsString, IsArray, ValidateNested, IsNumber } from 'class-validator';
+import {
+  IsEmail,
+  IsOptional,
+  IsString,
+  IsArray,
+  ValidateNested,
+  IsNumber,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class InvoiceItemDto {

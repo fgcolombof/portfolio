@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  CreateDateColumn,
+} from 'typeorm';
 import { UserEntity } from '../../users/entities/user.entity';
 import { InvoiceEntity } from '../../invoices/entities/invoice.entity';
 
@@ -7,7 +13,9 @@ export class NotificationEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => UserEntity, user => user.notifications, { onDelete: 'CASCADE' })
+  @ManyToOne(() => UserEntity, (user) => user.notifications, {
+    onDelete: 'CASCADE',
+  })
   user: UserEntity;
 
   @ManyToOne(() => InvoiceEntity, { nullable: true, onDelete: 'SET NULL' })

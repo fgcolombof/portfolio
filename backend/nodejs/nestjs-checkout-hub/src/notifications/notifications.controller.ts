@@ -1,5 +1,11 @@
 import { Controller, Get, Param, HttpStatus } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+} from '@nestjs/swagger';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { NotificationEntity } from './entities/notification.entity';
@@ -13,6 +19,7 @@ export class NotificationsController {
   ) {}
 
   @Get('user/:userId')
+  @ApiBearerAuth()
   @ApiOperation({ summary: 'Get notifications by user ID' })
   @ApiParam({
     name: 'userId',
@@ -24,7 +31,9 @@ export class NotificationsController {
     description: 'Notifications found',
     type: Object,
   })
-  async findByUser(@Param('userId') userId: string): Promise<NotificationEntity[]> {
+  async findByUser(
+    @Param('userId') userId: string,
+  ): Promise<NotificationEntity[]> {
     return this.notificationRepository.find({
       where: { user: { id: userId } },
       relations: {

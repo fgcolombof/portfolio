@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, OneToOne, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  CreateDateColumn,
+} from 'typeorm';
 import { InvoiceStatus } from '../enums/invoice-status.enum';
 import { UserEntity } from '../../users/entities/user.entity';
 import { InvoiceItemEntity } from './invoice-item.entity';
@@ -9,10 +17,10 @@ export class InvoiceEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => UserEntity, user => user.invoices, { onDelete: 'CASCADE' })
+  @ManyToOne(() => UserEntity, (user) => user.invoices, { onDelete: 'CASCADE' })
   user: UserEntity;
 
-  @OneToMany(() => InvoiceItemEntity, item => item.invoice, { cascade: true })
+  @OneToMany(() => InvoiceItemEntity, (item) => item.invoice, { cascade: true })
   items: InvoiceItemEntity[];
 
   @Column('decimal', { precision: 10, scale: 2 })
@@ -27,7 +35,10 @@ export class InvoiceEntity {
   @Column({ type: 'varchar', default: InvoiceStatus.PENDING })
   status: InvoiceStatus;
 
-  @OneToOne(() => PaymentReceiptEntity, receipt => receipt.invoice, { nullable: true, cascade: true })
+  @OneToOne(() => PaymentReceiptEntity, (receipt) => receipt.invoice, {
+    nullable: true,
+    cascade: true,
+  })
   paymentReceipt?: PaymentReceiptEntity;
 
   @CreateDateColumn()

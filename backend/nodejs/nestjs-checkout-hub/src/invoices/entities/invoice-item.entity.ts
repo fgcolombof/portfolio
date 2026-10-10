@@ -6,7 +6,9 @@ export class InvoiceItemEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => InvoiceEntity, invoice => invoice.items, { onDelete: 'CASCADE' })
+  @ManyToOne(() => InvoiceEntity, (invoice) => invoice.items, {
+    onDelete: 'CASCADE',
+  })
   invoice: InvoiceEntity;
 
   @Column()

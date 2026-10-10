@@ -16,9 +16,12 @@ export class UserEntity {
   @Column({ nullable: true })
   taxId?: string;
 
-  @OneToMany(() => InvoiceEntity, invoice => invoice.user)
+  @Column({ nullable: true, select: false })
+  passwordHash?: string;
+
+  @OneToMany(() => InvoiceEntity, (invoice) => invoice.user)
   invoices: InvoiceEntity[];
 
-  @OneToMany(() => NotificationEntity, notification => notification.user)
+  @OneToMany(() => NotificationEntity, (notification) => notification.user)
   notifications: NotificationEntity[];
 }

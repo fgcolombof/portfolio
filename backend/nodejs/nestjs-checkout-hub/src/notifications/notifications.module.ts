@@ -7,7 +7,9 @@ import { UserEntity } from '../users/entities/user.entity';
 import { InvoiceEntity } from '../invoices/entities/invoice.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([NotificationEntity, UserEntity, InvoiceEntity])],
+  imports: [
+    TypeOrmModule.forFeature([NotificationEntity, UserEntity, InvoiceEntity]),
+  ],
   controllers: [NotificationsController],
   providers: [NotificationsGateway],
   exports: [NotificationsGateway, TypeOrmModule],

@@ -8,7 +8,14 @@ import { NotificationEntity } from '../notifications/entities/notification.entit
 import { NotificationsModule } from '../notifications/notifications.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([InvoiceEntity, PaymentReceiptEntity, NotificationEntity]), NotificationsModule],
+  imports: [
+    TypeOrmModule.forFeature([
+      InvoiceEntity,
+      PaymentReceiptEntity,
+      NotificationEntity,
+    ]),
+    NotificationsModule,
+  ],
   controllers: [PaymentsController],
   providers: [PaymentsService],
   exports: [PaymentsService],

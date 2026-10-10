@@ -14,7 +14,19 @@ export class UsersService {
     return this.userRepository.findOneBy({ email });
   }
 
-  async findOrCreate(email: string, name?: string, taxId?: string): Promise<UserEntity> {
+  async findByEmailWithPassword(email: string): Promise<UserEntity | null> {
+    return this.userRepository
+      .createQueryBuilder('user')
+      .addSelect('user.passwordHash')
+      .where('user.email = :email', { email })
+      .getOne();
+  }
+
+  async findOrCreate(
+    email: string,
+    name?: string,
+    taxId?: string,
+  ): Promise<UserEntity> {
     let user = await this.findByEmail(email);
     if (!user) {
       user = this.userRepository.create({
@@ -25,6 +37,15 @@ export class UsersService {
       return this.userRepository.save(user);
     }
     return user;
+  }
+
+  async create(
+    email: string,
+    name: string,
+    passwordHash: string,
+  ): Promise<UserEntity> {
+    const user = this.userRepository.create({ email, name, passwordHash });
+    return this.userRepository.save(user);
   }
 
   async findOne(id: string): Promise<UserEntity | null> {

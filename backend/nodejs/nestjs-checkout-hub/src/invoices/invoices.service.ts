@@ -24,7 +24,7 @@ export class InvoicesService {
       createInvoiceDto.taxId,
     );
 
-    const items = createInvoiceDto.items.map(itemDto => {
+    const items = createInvoiceDto.items.map((itemDto) => {
       const totalPrice = itemDto.unitPrice * itemDto.quantity;
       const item = this.invoiceItemRepository.create({
         title: itemDto.title,
@@ -66,9 +66,15 @@ export class InvoicesService {
     return invoice;
   }
 
-  async update(id: string, partialInvoice: Partial<InvoiceEntity>): Promise<InvoiceEntity> {
+  async update(
+    id: string,
+    partialInvoice: Partial<InvoiceEntity>,
+  ): Promise<InvoiceEntity> {
     const invoice = await this.findOne(id);
-    const updatedInvoice = this.invoiceRepository.merge(invoice, partialInvoice);
+    const updatedInvoice = this.invoiceRepository.merge(
+      invoice,
+      partialInvoice,
+    );
     return await this.invoiceRepository.save(updatedInvoice);
   }
 }

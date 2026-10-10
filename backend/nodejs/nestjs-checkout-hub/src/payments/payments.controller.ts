@@ -3,12 +3,14 @@ import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { PaymentsService } from './payments.service';
 import { ProcessPaymentDto } from './dto/process-payment.dto';
 import { InvoiceEntity } from '../invoices/entities/invoice.entity';
+import { Public } from '../auth/decorators/public.decorator';
 
 @ApiTags('payments')
 @Controller('payments')
 export class PaymentsController {
   constructor(private readonly paymentsService: PaymentsService) {}
 
+  @Public()
   @Post('checkout')
   @ApiOperation({ summary: 'Process payment for an invoice' })
   @ApiResponse({
@@ -24,7 +26,9 @@ export class PaymentsController {
     status: HttpStatus.NOT_FOUND,
     description: 'Invoice not found',
   })
-  async processPayment(@Body() processPaymentDto: ProcessPaymentDto): Promise<InvoiceEntity> {
+  async processPayment(
+    @Body() processPaymentDto: ProcessPaymentDto,
+  ): Promise<InvoiceEntity> {
     return this.paymentsService.processPayment(processPaymentDto);
   }
 }
