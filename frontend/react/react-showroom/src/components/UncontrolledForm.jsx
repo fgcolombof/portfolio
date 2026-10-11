@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { z } from "zod";
 
-// 🛡️ Esquema Zod
+// 🛡️ Zod Schema
 const profileSchema = z.object({
   username: z
     .string()
@@ -14,7 +14,7 @@ const ProfileForm = () => {
   const userNameRef = useRef(null);
   const emailRef = useRef(null);
 
-  // Estados
+  // States
   const [errors, setErrors] = useState({});
   const [submittedData, setSubmittedData] = useState(null); // We store the result here
 
@@ -34,7 +34,7 @@ const ProfileForm = () => {
         formattedErrors[issue.path[0]] = issue.message;
       });
       setErrors(formattedErrors);
-      setSubmittedData(null); // Si hay error, ocultamos previa anterior
+      setSubmittedData(null); // If error, we hid previous view
       return;
     }
 
@@ -50,8 +50,8 @@ const ProfileForm = () => {
     <div className="form-container">
       <h1 className="form-title">Uncontrolled Form</h1>
       <p className="form-subtitle">
-        <code>useRef</code> + Validation <code>Zod</code> + Live preview
-        on screen.
+        <code>useRef</code> + Validation <code>Zod</code> + Live preview on
+        screen.
       </p>
 
       <form onSubmit={handleSubmit} noValidate>

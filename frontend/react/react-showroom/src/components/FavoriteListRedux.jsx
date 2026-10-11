@@ -10,13 +10,13 @@ export const FavoriteListRedux = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Leemos los favoritos directamente desde tu FavoritesSlice
+  // Read favorites from FavoritesSlice
   const favorites = useSelector((state) => state.favorites?.items || []);
 
   // API base URL - always use /api which works with Netlify Dev and production
   const API_BASE_URL = "/api";
 
-  // Fetch directo a tu Mock API local
+  // Fetch from  local Mock API
   useEffect(() => {
     const getProducts = async () => {
       try {

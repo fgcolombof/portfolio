@@ -11,7 +11,7 @@ const QuizApp = () => {
   // API base URL - always use /api which works with Netlify Dev and production
   const API_BASE_URL = "/api";
 
-  // Fetch a la Mock API
+  // Fetch Mock API
   useEffect(() => {
     const fetchQuiz = async () => {
       try {
@@ -21,7 +21,7 @@ const QuizApp = () => {
         }
         const data = await response.json();
         setQuiz(data);
-        // Inicializamos los valores en null una vez que cargaron las preguntas
+        // Initialize the values to null once the questions are loaded
         setAnswers(Array(data.content.length).fill(null));
       } catch (error) {
         console.error("Error fetching quiz data:", error);
@@ -42,7 +42,7 @@ const QuizApp = () => {
     );
   }
 
-  // 1. DERIVAR ESTADO
+  // 1. STATE FROM THE SPECIFIC QUESTION
   const currentSelectedAnswer = answers[currentStep];
   const isAnswerSelected =
     currentSelectedAnswer !== undefined && currentSelectedAnswer !== null;

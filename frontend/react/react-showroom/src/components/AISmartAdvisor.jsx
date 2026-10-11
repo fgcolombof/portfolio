@@ -16,7 +16,7 @@ const AISmartAdvisor = () => {
             accept: "*/*",
             "Content-Type": "application/json",
           },
-          // ⚡ Estructura exacta que espera tu endpoint en Render
+          // ⚡ Structure expected by the endpoint in Render
           body: JSON.stringify({
             messages: [{ role: "user", content: userText }],
           }),
@@ -25,7 +25,7 @@ const AISmartAdvisor = () => {
       const data = await response.json();
       setLoading(false);
 
-      // Retornamos el string devuelto por la API ({ response: "..." })
+      // We back the string from the API ({ response: "..." })
       return data.response;
     } catch (error) {
       setLoading(false);
@@ -39,17 +39,13 @@ const AISmartAdvisor = () => {
     const userText = inputRef.current?.value.trim();
     if (!userText || loading) return;
 
-    // 1. Limpiamos el textarea
     inputRef.current.value = "";
 
-    // 2. Agregamos el mensaje del usuario inmediatamente al chat
     const userMsg = { role: "user", text: userText };
     setContent((prevContent) => [...prevContent, userMsg]);
 
-    // 3. Consultamos la API
     const botReplyText = await fetchAiResponse(userText);
 
-    // 4. Agregamos la respuesta de la IA
     const botMsg = { role: "bot", text: botReplyText };
     setContent((prevContent) => [...prevContent, botMsg]);
 
@@ -68,7 +64,7 @@ const AISmartAdvisor = () => {
       <h1 className="chat-header-title">AI Smart Advisor</h1>
       <p className="chat-header-subtitle">Ask our AI API anything you want.</p>
 
-      {/* Panel de mensajes */}
+      {/* Messages Panel */}
       <div className="chat-messages-panel">
         {content.map((msg, index) => (
           <div
@@ -78,7 +74,7 @@ const AISmartAdvisor = () => {
             <span className="chat-bubble-sender">
               {msg.role === "user" ? "You" : "AI Advisor"}
             </span>
-            {/* ⚡ Imprimimos msg.text unificado con saltos de línea respetados */}
+            {/* ⚡ We print unified msg.text respecting new lines characters  */}
             <p style={{ whiteSpace: "pre-wrap" }}>{msg.text}</p>
           </div>
         ))}
@@ -91,7 +87,7 @@ const AISmartAdvisor = () => {
         )}
       </div>
 
-      {/* Formulario */}
+      {/* Form */}
       <form onSubmit={handleSend} className="chat-input-form">
         <textarea
           ref={inputRef}

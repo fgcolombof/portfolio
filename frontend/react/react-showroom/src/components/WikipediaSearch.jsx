@@ -5,7 +5,7 @@ const URL_PREFIX =
   "https://en.wikipedia.org/w/api.php?action=opensearch&search=";
 const URL_POSTFIX = "&format=json&origin=*";
 
-// 1. EL MAPPER (Tu adaptador de datos)
+// 1. MAPPER (Data Mapping)
 const mapWikipediaResponse = (rawArray) => {
   if (!Array.isArray(rawArray) || rawArray.length < 4) {
     return { query: "", results: [] };
@@ -23,7 +23,7 @@ const mapWikipediaResponse = (rawArray) => {
   };
 };
 
-// 2. SERVICIO DE FETCH
+// 2. FETCH SERVICE (API Call)
 const fetchData = async (searchTerm) => {
   try {
     const url = `${URL_PREFIX}${encodeURIComponent(searchTerm)}${URL_POSTFIX}`;
@@ -64,7 +64,7 @@ const WikipediaSearch = () => {
         </p>
       </header>
 
-      {/* BOX DE BUSQUEDA */}
+      {/* SEARCH BOX */}
       <div style={styles.searchContainer}>
         <form onSubmit={handleSubmit} style={styles.form}>
           <input
@@ -79,7 +79,7 @@ const WikipediaSearch = () => {
         </form>
       </div>
 
-      {/* RESULTADOS */}
+      {/* RESULTS */}
       <div style={styles.resultsContainer}>
         {info && (
           <h2 style={styles.resultsTitle}>
@@ -123,7 +123,7 @@ const WikipediaSearch = () => {
   );
 };
 
-// 💅 ESTILOS REUTILIZANDO TUS VARIABLES CSS
+// 💅 STYLES RE-USING VARIABLES CSS
 const styles = {
   wrapper: {
     padding: "2rem",

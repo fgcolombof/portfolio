@@ -30,7 +30,8 @@ export const Result = ({ answers, quiz, onRestart }) => {
           const isCorrect = userChoiceText === correctAnswerText;
 
           // If not answered
-          const didNotAnswer = userChoiceText === null || userChoiceText === undefined;
+          const didNotAnswer =
+            userChoiceText === null || userChoiceText === undefined;
 
           return (
             <div
@@ -47,7 +48,9 @@ export const Result = ({ answers, quiz, onRestart }) => {
                   className={`quiz-user-choice ${isCorrect ? "correct" : "wrong"}`}
                 >
                   {isCorrect ? "✓ " : "✗ "}Tu respuesta:{" "}
-                  <strong>{didNotAnswer ? "Sin responder" : userChoiceText}</strong>
+                  <strong>
+                    {didNotAnswer ? "Sin responder" : userChoiceText}
+                  </strong>
                 </div>
 
                 {/* If wrong or not answered, show what the correct answer was */}

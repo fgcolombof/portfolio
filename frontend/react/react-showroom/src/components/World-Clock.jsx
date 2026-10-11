@@ -91,7 +91,7 @@ const WorldClock = () => {
 
 export default WorldClock;
 
-// 💅 ESTILOS REUTILIZANDO TUS VARIABLES CSS
+// 💅 STYLES RE-USING VARIABLES CSS
 const styles = {
   wrapper: {
     padding: "2rem",
