@@ -31,6 +31,9 @@ const NavBar = () => {
         <li>
           <Link to="/quiz-app">Quiz Application</Link>
         </li>
+        <li>
+          <Link to="/ai-smart-advisor">AI Smart Advisor</Link>
+        </li>
       </ul>
       <a
         href="https://github.com/fgcolombof/portfolio"

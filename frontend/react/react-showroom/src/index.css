@@ -1072,3 +1072,179 @@ body {
 .back-link:hover {
   opacity: 0.8;
 }
+
+/* ==========================================
+   🤖 MODULE: AI SMART ADVISOR CHAT (Dark & Gold)
+   ========================================== */
+
+.chat-app-container {
+  max-width: 650px;
+  margin: 2rem auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Header del Chat */
+.chat-header-title {
+  color: var(--accent-yellow);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.chat-header-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Panel/Canvas con Scroll de Mensajes (Estilo WhatsApp) */
+.chat-messages-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  height: 380px;
+  overflow-y: auto;
+  padding: 1.25rem;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar dorada/oscura adaptada al tema */
+.chat-messages-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages-panel::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 4px;
+}
+.chat-messages-panel::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-yellow);
+}
+
+/* Burbujas de Chat */
+.chat-bubble {
+  max-width: 80%;
+  padding: 0.8rem 1.1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  word-break: break-word;
+  animation: chatFadeIn 0.2s ease-in-out;
+}
+
+@keyframes chatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tus Mensajes (Alineados a la derecha con toque dorado) */
+.chat-bubble.user {
+  align-self: flex-end;
+  background-color: rgba(255, 204, 0, 0.15);
+  color: var(--accent-yellow);
+  border: 1px solid rgba(255, 204, 0, 0.3);
+  border-bottom-right-radius: 2px;
+}
+
+/* Respuestas de la IA (Alineadas a la izquierda con tarjeta oscura) */
+.chat-bubble.bot {
+  align-self: flex-start;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-bottom-left-radius: 2px;
+}
+
+.chat-bubble-sender {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+  opacity: 0.8;
+}
+
+/* Bloques de código devueltos por la IA */
+.chat-bubble pre {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  overflow-x: auto;
+  color: var(--accent-yellow);
+}
+
+/* Formulario e Inputs */
+.chat-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: none;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.chat-textarea:focus {
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.2);
+}
+
+/* Botón Enviar */
+.chat-submit-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--accent-yellow);
+  color: #000;
+  border: 1px solid var(--accent-yellow);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chat-submit-btn:hover:not(:disabled) {
+  background-color: #e6b800;
+  border-color: #e6b800;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.chat-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

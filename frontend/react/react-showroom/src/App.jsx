@@ -10,6 +10,7 @@ import CounterZustand from "./components/CounterZustand";
 import FavoritesListRedux from "./components/FavoriteListRedux";
 ("./components/WikipediaSearch");
 import QuizApp from "./quiz/App";
+import AISmartAdvisor from "./components/AISmartAdvisor";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/fav-list-zus" element={<FavoriteListZus />} />
         <Route path="/fav-list-redux" element={<FavoritesListRedux />} />
         <Route path="/quiz-app" element={<QuizApp />} />
+        <Route path="/ai-smart-advisor" element={<AISmartAdvisor />} />
       </Routes>
     </>
   );

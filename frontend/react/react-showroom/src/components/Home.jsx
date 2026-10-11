@@ -21,8 +21,8 @@ const Home = () => {
           <div>
             <h2 className="section-title">Core Concepts & React Hooks</h2>
             <p className="section-desc">
-              Fundamentals, DOM manipulation with refs, interval cleanup
-              and external APIs.
+              Fundamentals, DOM manipulation with refs, interval cleanup and
+              external APIs.
             </p>
           </div>
         </div>
@@ -136,8 +136,8 @@ const Home = () => {
               </div>
               <h3 className="card-title">Favorites List (Redux)</h3>
               <p className="card-text">
-                Global state architecture using Slices, Selectors, and
-                Redux Store.
+                Global state architecture using Slices, Selectors, and Redux
+                Store.
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
@@ -169,6 +169,23 @@ const Home = () => {
               <p className="card-text">
                 Sample quiz application built with React, demonstrating state
                 management and component interaction.
+              </p>
+              <span className="card-link">Preview demo [Launch]</span>
+            </div>
+          </div>
+
+          <div className="card" onClick={() => navigate("/ai-smart-advisor")}>
+            <div className="card-content">
+              <div className="card-top">
+                <span className="card-number">#07</span>
+                <span className="tech-tag zustand">AI Smart Advisor</span>
+              </div>
+              <h3 className="card-title">AI Smart Advisor</h3>
+              <p className="card-text">
+                Interactive React client integrated with a containerized FastAPI
+                backend. Powered by OpenRouter API for advanced LLM
+                orchestration, secure environment handling, and real-time
+                intelligent recommendations
               </p>
               <span className="card-link">Preview demo [Launch]</span>
             </div>
